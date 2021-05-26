@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("AgileCoding.Library.Loggers")]
-[assembly: AssemblyDescription("Logging Library")]
+[assembly: AssemblyDescription("Logger library with multiple logger implementations")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
+[assembly: AssemblyProduct("AgileCoding")]
 [assembly: AssemblyCopyright("Copyright © Ernie Gunning  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
