@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AgileCoding.Extentions.Exceptions, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Exception.1.0.0.12\lib\net472\AgileCoding.Extentions.Exceptions.dll</HintPath>
+    <Reference Include="AgileCoding.Extentions.Exceptions, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AgileCoding.Extentions.Exception.1.0.0.3\lib\net472\AgileCoding.Extentions.Exceptions.dll</HintPath>
     </Reference>
     <Reference Include="AgileCoding.Extentions.Linq, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AgileCoding.Extentions.Linq.1.0.0.1\lib\net472\AgileCoding.Extentions.Linq.dll</HintPath>
@@ -43,8 +43,8 @@
     <Reference Include="AgileCoding.Library.Interfaces, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AgileCoding.Library.Interfaces.1.0.0.1\lib\net472\AgileCoding.Library.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="StyleCop, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f904653c63bc2738, processorArchitecture=MSIL">
-      <HintPath>..\..\..\DocfusionLoadGenerator\packages\StyleCop.6.2.0\lib\net40\StyleCop.dll</HintPath>
+    <Reference Include="AgileCoding.Library.Loggers, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AgileCoding.Library.Loggers.1.0.0.2\lib\net472\AgileCoding.Library.Loggers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
