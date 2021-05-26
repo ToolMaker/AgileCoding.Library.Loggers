@@ -43,9 +43,6 @@
     <Reference Include="AgileCoding.Library.Interfaces, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AgileCoding.Library.Interfaces.1.0.0.1\lib\net472\AgileCoding.Library.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="AgileCoding.Library.Loggers, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Library.Loggers.1.0.0.2\lib\net472\AgileCoding.Library.Loggers.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
