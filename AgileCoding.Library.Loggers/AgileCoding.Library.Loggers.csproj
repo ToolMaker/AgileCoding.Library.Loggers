@@ -56,9 +56,11 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LocalLoggers\WindowsEventLogger.cs" />
+    <Compile Include="WindowsConsoleOutputLogger.cs" />
+    <Compile Include="WindowsEventLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LocalLoggers\UnitTestLogger.cs" />
+    <Compile Include="UnitTestLogger.cs" />
+    <Compile Include="WindowsEventLoggerExtentions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
