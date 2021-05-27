@@ -6,7 +6,7 @@
     using System;
     using System.IO;
 
-    internal class WindowsConsoleOutputLogger : ILogger
+    public class WindowsConsoleOutputLogger : ILogger
     {
         private StreamWriter standardOutput = null;
 
