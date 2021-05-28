@@ -1,13 +1,13 @@
 ﻿namespace AgileCoding.Library.Loggers
 {
-    using System;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Security;
     using AgileCoding.Extentions.Exceptions;
     using AgileCoding.Extentions.Linq;
     using AgileCoding.Library.Enums.Logging;
     using AgileCoding.Library.Interfaces.Logging;
+    using System;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Security;
 
     public class WindowsEventLogger : ILogger
     {
@@ -60,52 +60,50 @@
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "3", Justification = "Because the exception is system generated")]
         public bool WriteCore(LogTypeEnum eventType, int eventId, object state, Exception exception, Func<object, Exception, string> formatter)
         {
-            if (TempWorkAroundToOnlyAllowErrorsToBeLogged(eventType))
-            {
-                EventLogEntryType typeOfEvent = EventLogEntryType.Information;
-                string message = string.Empty;
-                string exceptionMessage = exception != null ? exception.ToStringAll() : string.Empty;
 
-                switch (eventType)
-                {
-                    case LogTypeEnum.Critical:
-                        typeOfEvent = EventLogEntryType.Error;
-                        message = string.Format("Critical Error: {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
-                        break;
-                    case LogTypeEnum.Error:
-                        typeOfEvent = EventLogEntryType.Error;
-                        message = string.Format("{0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
-                        break;
-                    case LogTypeEnum.Warning:
-                        typeOfEvent = EventLogEntryType.Warning;
-                        message = exception == null
-                            ? string.Format("Warning! : {0}", state.ToString())
-                            : string.Format("Warning! : {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
-                        break;
-                    case LogTypeEnum.Information:
-                        typeOfEvent = EventLogEntryType.Information;
-                        message = exception == null
-                            ? string.Format("Informational : {0}", state.ToString())
-                            : string.Format("Informational : {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
-                        break;
-                    case LogTypeEnum.Verbose:
-                        typeOfEvent = EventLogEntryType.Information;
-                        message = exception == null
-                            ? string.Format("Verbose Information : {0}", state.ToString())
-                            : string.Format("Verbose Information : {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
-                        break;
-                    default:
-                        break;
-                }
-                // TODO : Event Log has a message restriction size of 32766 characters.
-                try
-                {
-                    eventLog.WriteEntry(message, typeOfEvent, eventId);
-                }
-                catch (Exception ex)
-                {
-                    eventLog.WriteEntry("There Was a error that was too long", EventLogEntryType.Error, eventId);
-                }
+            EventLogEntryType typeOfEvent = EventLogEntryType.Information;
+            string message = string.Empty;
+            string exceptionMessage = exception != null ? exception.ToStringAll() : string.Empty;
+
+            switch (eventType)
+            {
+                case LogTypeEnum.Critical:
+                    typeOfEvent = EventLogEntryType.Error;
+                    message = string.Format("Critical Error: {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
+                    break;
+                case LogTypeEnum.Error:
+                    typeOfEvent = EventLogEntryType.Error;
+                    message = string.Format("{0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
+                    break;
+                case LogTypeEnum.Warning:
+                    typeOfEvent = EventLogEntryType.Warning;
+                    message = exception == null
+                        ? string.Format("Warning! : {0}", state.ToString())
+                        : string.Format("Warning! : {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
+                    break;
+                case LogTypeEnum.Information:
+                    typeOfEvent = EventLogEntryType.Information;
+                    message = exception == null
+                        ? string.Format("Informational : {0}", state.ToString())
+                        : string.Format("Informational : {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
+                    break;
+                case LogTypeEnum.Verbose:
+                    typeOfEvent = EventLogEntryType.Information;
+                    message = exception == null
+                        ? string.Format("Verbose Information : {0}", state.ToString())
+                        : string.Format("Verbose Information : {0}{1}{1}Exception Details:{1}{2}", state.ToString(), Environment.NewLine, exceptionMessage);
+                    break;
+                default:
+                    break;
+            }
+            // TODO : Event Log has a message restriction size of 32766 characters.
+            try
+            {
+                eventLog.WriteEntry(message, typeOfEvent, eventId);
+            }
+            catch (Exception ex)
+            {
+                eventLog.WriteEntry("There Was a error that was too long", EventLogEntryType.Error, eventId);
             }
 
             return true;
